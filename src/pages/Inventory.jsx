@@ -51,11 +51,7 @@ const Inventory = () => {
   return (
     <>
     <div className='p-5 bg-red-700 text-white overflow-x-clip h-screen ml-16 mt-20'>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart width={150} height={40} data={data} className='bg-green-700'>
-          <Bar dataKey="uv" fill="#8884d8" />
-        </BarChart>
-      </ResponsiveContainer>
+      This is inventry page
       </div>
     </>
   )
