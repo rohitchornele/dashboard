@@ -50,10 +50,10 @@ function ReviewData() {
     <>
       <div className="w-full bg-[#20202b] p-1 ">
         {reviewList.map((review) => (
-          <div className="divide-red-600">
+          <div className="divide-red-600"  key={review.id}>
             <div
               className="flex flex-col gap-1 p-1 ml-2 m-2 mt-0 divide-gray-300"
-              key={review.id}
+             
             >
               <div className="flex items-center gap-2 text-[#f8fafd]">
                 <Avatar src={review.picture} />
