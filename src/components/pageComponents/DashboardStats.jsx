@@ -1,49 +1,53 @@
-import { Legend, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from "@headlessui/react";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
-let data= [
-  {month: "Jan", sales: 10000},
-  {month: "Feb", sales: 12000},
-  {month: "Mar", sales: 18000},
-  {month: "Apr", sales: 11000},
-  {month: "May", sales: 9000},
-  {month: "Jun", sales: 9000},
-  {month: "Jul", sales: 9000},
-  {month: "Aug", sales: 9000},
-  {month: "Sep", sales: 9000},
-  {month: "Oct", sales: 9000},
-  {month: "Nov", sales: 9000},
-  {month: "Dec", sales: 9000},
-]
+
+import {
+  Chart as ChartJs,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+import { Bar } from "react-chartjs-2";
+
+ChartJs.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const DashboardStats = () => {
   return (
-  <>
-  <div className="flex flex-col gap-2 bg-[#20202b] p-4 h-full rounded-md md:w-[97%] w-[95%] ml-3">
-    <div className="flex justify-between items-center px-4">
-      <h3 className='text-2xl font-bold text-[#f8fafd]'>Activity</h3>
-      <Dropdown />
-    </div>
-    <div className="chart-div w-full h-full pt-1">
-    <ResponsiveContainer >
-        <BarChart width={"100%"} height={"90%"} data={data} className='text-[#f8fafd]'>
-        <XAxis dataKey="month" color='#f8fafd'/>
-          <YAxis color='#f8fafd'/>
-          <Legend />
-          <Bar dataKey="sales" fill="#7394ff" className='rounded-b-none rounded-md' />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  </div>
-  </>
-  )
-}
+    <>
+      <div className="flex flex-col gap-2 bg-[#20202b] p-4 h-full rounded-md w-[95%] md:w-[97%] ml-3">
+        <div className="flex justify-between items-center px-4">
+          <h3 className="text-2xl font-bold text-[#f8fafd]">Activity</h3>
+          <Dropdown />
+        </div>
+        <div className="md:h-full h-full w-full pt-1 m-0">
+          <ChartComponent />
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default DashboardStats
+export default DashboardStats;
 
 function Dropdown() {
-  return(
+  return (
     <Menu as="div" className="relative text-center">
       <div>
         <MenuButton className="flex w-full justify-center items-center rounded-full bg-[#303134] px-2 py-1 text-xs text-[#f8fafd]">
@@ -58,41 +62,49 @@ function Dropdown() {
       >
         <div className="py-1">
           <MenuItem>
-            <button
-              className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
-            >
+            <button className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900">
               Daily
             </button>
           </MenuItem>
           <MenuItem>
-            <button
-              
-              className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
-            >
+            <button className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900">
               Weekly
             </button>
           </MenuItem>
           <MenuItem>
-            <button
-              
-              className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
-            >
+            <button className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900">
               Monthly
             </button>
           </MenuItem>
           <MenuItem>
-            <button
-              
-              className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
-            >
+            <button className="block px-4 py-2 text-sm  data-[focus]:bg-gray-100 data-[focus]:text-gray-900">
               Yearly
             </button>
           </MenuItem>
-         
         </div>
       </MenuItems>
     </Menu>
-
-)
+  );
 }
 
+function ChartComponent() {
+  const labels = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const dataValues =  [100, 120, 180, 110, 90, 290, 150, 340, 110, 500, 360, 110]
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Sales per month",
+        data: dataValues,
+        backgroundColor: "#7394ff"
+        
+      },
+    ],
+  };
+
+  return (
+    <div className="p-1 h-full w-full">
+      <Bar data={data}/>
+    </div>
+  )
+}
