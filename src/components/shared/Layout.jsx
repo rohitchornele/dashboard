@@ -14,8 +14,8 @@ const Layout = () => {
           <Sidebar />
         </div>
       <div className="relative w-full flex flex-row top-16 justify-center">
-        <div className="md:w-16 lg:w-52 w-12 h-full bg-red-600  px-3 lg:px-5"></div>
-        <div className="w-full relative lg:px-5">{<Outlet />}</div>
+        <div className="md:w-16 lg:w-52 w-12 h-full bg-[#141416] px-3 lg:px-5"></div>
+        <div className="w-full relative ">{<Outlet />}</div>
       </div>
       </div>
     </>

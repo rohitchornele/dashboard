@@ -47,9 +47,9 @@ function FlexWrapper({ children }) {
 }
 
 function LeftContentWrapper({ children }) {
-  return <div className="left-col w-[95%]  md:w-[58%] ml-3">{children}</div>;
+  return <div className="left-col w-[95%]  md:w-[60%] ml-3">{children}</div>;
 }
 
 function RightContentWrapper({ children }) {
-  return <div className="right-col w-[95%]  md:w-[38%] ml-3">{children}</div>;
+  return <div className="right-col w-[95%]  md:w-[40%] ml-3">{children}</div>;
 }
