@@ -31,12 +31,12 @@ ChartJs.register(
 const DashboardStats = () => {
   return (
     <>
-      <div className="flex flex-col gap-2 bg-[#20202b] p-4 h-full rounded-md w-[95%] md:w-[97%] ml-3">
+      <div className="flex flex-col gap-2 bg-[#20202b] p-4 h-[100%] rounded-md w-[95%] md:w-[97%] ml-3">
         <div className="flex justify-between items-center px-4">
           <h3 className="text-2xl font-bold text-[#f8fafd]">Activity</h3>
           <Dropdown />
         </div>
-        <div className="md:h-full h-full w-full pt-1 m-0">
+        <div className="h-full w-full pt-1 m-0">
           <ChartComponent />
         </div>
       </div>
@@ -103,7 +103,7 @@ function ChartComponent() {
   };
 
   return (
-    <div className="p-1 h-full w-full">
+    <div className="p-1 h-full w-full flex items-center justify-center">
       <Bar data={data}/>
     </div>
   )
