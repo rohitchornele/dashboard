@@ -12,7 +12,7 @@ import React from "react";
 const DashboardOrders = () => {
   return (
     <>
-      <div className="flex flex-col bg-[#20202b] p-4  rounded-md md:w-[97%] ml-3 gap-2">
+      <div className="flex flex-col bg-[#20202b] p-4 h-full  rounded-md md:w-[97%] ml-3 gap-2">
         <div className="heading">
           <h2 className="text-2xl font-bold text-[#f8fafd]">Recent Orders</h2>
         </div>
@@ -73,6 +73,15 @@ function OrderData() {
       amount: 5247,
       status: "Delivered",
     },
+    {
+      id: "66b339372c04445f05b0201",
+      picture:
+        "https://www.shutterstock.com/shutterstock/photos/2151833739/display_1500/stock-photo-portrait-of-a-young-latin-woman-with-pleasant-smile-and-crossed-arms-isolated-on-grey-wall-with-2151833739.jpg",
+      name: "Joseph Sanders",
+      orederId: 4049682,
+      amount: 5247,
+      status: "Delivered",
+    }
   ];
 
   return (
